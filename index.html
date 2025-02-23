@@ -40,13 +40,41 @@
             font-size: 14px;
             opacity: 0.7;
         }
+        .email-signup {
+            margin-top: 30px;
+        }
+        .email-signup input {
+            padding: 10px;
+            width: 70%;
+            border-radius: 5px;
+            border: none;
+        }
+        .email-signup button {
+            padding: 10px 20px;
+            background-color: gold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .email-signup button:hover {
+            background-color: #ffd700;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Welcome to WealthXpress</h1>
         <p>The ultimate platform for AI-powered wealth creation. Learn how to use AI to make money and live a luxury lifestyle.</p>
-        <a href="#" class="cta-button">Start Now</a>
+        <a href="https://your-affiliate-link.com" class="cta-button">Start Now</a>
+        
+        <div class="email-signup">
+            <h2>Get Exclusive AI Money-Making Tips!</h2>
+            <form action="https://formsubmit.co/your-email@gmail.com" method="POST">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
     </div>
     <div class="footer">&copy; 2025 WealthXpress | All Rights Reserved</div>
 </body>
