@@ -1,0 +1,203 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #1a1a2e, #16213e, #0f3460);
+    color: #fff;
+    scroll-behavior: smooth;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+}
+.navbar a:hover {
+    color: cyan;
+}
+.cta-button {
+    background-color: cyan;
+    color: #111;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.cta-button:hover {
+    background-color: #00ffff;
+}
+.section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+#main-screen, #features, #resources, #pricing, #signin, #freetrial, #learnmore {
+    background: rgba(255, 255, 255, 0.1);
+    margin: 50px auto;
+    padding: 50px;
+    border-radius: 10px;
+    max-width: 800px;
+}
+.feature-list, .resource-list, .pricing-table {
+    text-align: left;
+    max-width: 700px;
+}
+.feature-list ul, .resource-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+.feature-list li, .resource-list li {
+    background: rgba(255, 255, 255, 0.2);
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+}
+.pricing-table {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.pricing-plan {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+}
+.pricing-plan h3 {
+    color: cyan;
+}
+.pricing-plan p {
+    font-size: 14px;
+    margin: 10px 0;
+}
+.pricing-plan .price {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+.hero-section {
+    min-height: 100vh;
+    padding: 120px 50px 50px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+.hero-content {
+    max-width: 600px;
+}
+h1 {
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    font-weight: 600;
+    background: linear-gradient(to right, #fff, #e0e0e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.hero-description {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #a0a0a0;
+    margin-bottom: 40px;
+    max-width: 540px;
+}
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.cta-button.primary {
+    background: #2d89ff;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    transition: background 0.3s ease;
+}
+.cta-button.primary:hover {
+    background: #1a7af8;
+}
+.cta-button.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 15px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.cta-button.secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+.play-icon {
+    font-size: 12px;
+}
+.hero-image {
+    flex: 1;
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dashboard-preview {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+@media (max-width: 1024px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 100px 20px 50px;
+    }
+    .hero-content {
+        max-width: 100%;
+    }
+    h1 {
+        font-size: 3.5rem;
+    }
+    .hero-description {
+        margin: 30px auto;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+    .hero-image {
+        max-width: 90%;
+        margin-top: 50px;
+    }
+}
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    .cta-button {
+        width: 100%;
+    }
+} 

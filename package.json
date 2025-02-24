@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "stripe": "^8.191.0",
+    "dotenv": "^10.0.0"
+  }
+} 
