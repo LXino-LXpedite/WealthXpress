@@ -9,16 +9,28 @@ const PRICE_IDS = {
 
 // Add click event listeners when the document loads
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Setting up payment buttons...');
+    
     // Plus Plan Button
     const plusButton = document.getElementById('plus-plan-button');
     if (plusButton) {
-        plusButton.addEventListener('click', () => handleSubscription(PRICE_IDS.plus));
+        plusButton.addEventListener('click', async () => {
+            console.log('Plus button clicked');
+            await handleSubscription(PRICE_IDS.plus);
+        });
+    } else {
+        console.error('Plus button not found');
     }
 
     // Pro Plan Button
     const proButton = document.getElementById('pro-plan-button');
     if (proButton) {
-        proButton.addEventListener('click', () => handleSubscription(PRICE_IDS.pro));
+        proButton.addEventListener('click', async () => {
+            console.log('Pro button clicked');
+            await handleSubscription(PRICE_IDS.pro);
+        });
+    } else {
+        console.error('Pro button not found');
     }
 });
 
@@ -27,7 +39,7 @@ async function handleSubscription(priceId) {
         console.log('Starting subscription process for price ID:', priceId);
         
         // Create a checkout session
-        const response = await fetch('/create-checkout-session', {
+        const response = await fetch('http://localhost:3000/create-checkout-session', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -38,7 +50,8 @@ async function handleSubscription(priceId) {
         });
 
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            const errorData = await response.text();
+            throw new Error(`Network response was not ok: ${errorData}`);
         }
 
         const session = await response.json();
@@ -54,7 +67,7 @@ async function handleSubscription(priceId) {
             alert(result.error.message);
         }
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error in handleSubscription:', error);
         alert('Something went wrong. Please try again.');
     }
 } 

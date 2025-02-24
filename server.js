@@ -3,6 +3,13 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const app = express();
 require('dotenv').config();
 
+// Enable CORS
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+});
+
 app.use(express.static('public'));
 app.use(express.json());
 
@@ -14,6 +21,7 @@ const PRICE_IDS = {
 
 // Create checkout session
 app.post('/create-checkout-session', async (req, res) => {
+    console.log('Received request for checkout session:', req.body);
     try {
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
@@ -28,9 +36,10 @@ app.post('/create-checkout-session', async (req, res) => {
             cancel_url: `${process.env.DOMAIN}/cancel.html`,
         });
 
+        console.log('Created checkout session:', session.id);
         res.json({ id: session.id });
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error creating checkout session:', error);
         res.status(500).json({ error: error.message });
     }
 });
@@ -59,4 +68,5 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
     res.json({ received: true });
 });
 
-app.listen(3000, () => console.log('Server running on port 3000')); 
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`)); 
